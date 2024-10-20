@@ -1,0 +1,61 @@
+
+.register-block {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.register-sec {
+    padding: 20px;
+}
+
+h2.text-center {
+    margin-bottom: 30px;
+    color: #0764c1;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.btn-register {
+    background-color: #0069c0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.text-danger {
+    color: red; /* Adjust error message color */
+}
