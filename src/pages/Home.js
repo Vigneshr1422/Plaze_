@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 import image from "../assets/img/College with Flowers with Air in natural.png"; // Adjust the path as necessary
 import service1Image from '../assets/img/generate.png';
 import service2Image from '../assets/img/view.png';
@@ -61,12 +63,12 @@ const Home = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-4">Welcome to the Love Project</h2>
               <p className="text-xl md:text-2xl mb-6">Building connections, nurturing relationships.</p>
               {/* Get Started Button */}
-              <a 
-                href="#services" 
-                className="inline-block px-6 py-3 bg-pink-500 text-white text-lg font-semibold rounded-lg hover:bg-pink-600 transition duration-300"
-              >
-                Get Started
-              </a>
+              <Link 
+  to="/login" // Update this to your login page path
+  className="inline-block px-6 py-3 bg-pink-500 text-white text-lg font-semibold rounded-lg hover:bg-pink-600 transition duration-300"
+>
+  Get Started
+</Link>
             </div>
 
             {/* Image Section */}
