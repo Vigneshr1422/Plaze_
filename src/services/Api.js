@@ -6,7 +6,7 @@ import { getUserData } from "./Storage"; // Make sure this path is correct
 axios.defaults.baseURL = "https://identitytoolkit.googleapis.com/v1";
 
 // Replace with your actual API key
-const API_KEY = "AIzaSyClz3L9sVdzrkEQW9ZT5ibqOtW09Ydmbaw"; 
+const API_KEY = process.env.REACT_APP_API_KEY; 
 
 // Define URLs for registration, login, and user details
 const REGISTER_URL = `/accounts:signUp?key=${API_KEY}`;

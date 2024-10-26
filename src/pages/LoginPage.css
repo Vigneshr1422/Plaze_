@@ -1,25 +1,52 @@
+/*
+
+=Main Login Block Styling ==
 .login-block {
     width: 100%;
     padding: 50px 0;
     background-color: #f7f7f7;
-}
-
-.container {
-    background: #D3D3D3;
-    border-radius: 10px;
-    width: 40%;
-    padding: 10px;
-}
-
-.login-sec {
-    padding: 50px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     position: relative;
 }
 
+=Tilted Background Box 
+.tilt-box {
+    background-color: #00bfff;
+    width: 30%;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-79deg); =Tilt the background 
+    border-radius: 10px;
+    z-index: 0;
+}
+
+=Primary Container Styling (on top of tilt) 
+.container {
+    background: white;
+    border-radius: 10px;
+    width: 30%;
+    padding: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1; =On top of the tilted box 
+}
+
+=Login Section 
+.login-sec {
+    padding: 20px;
+    text-align: center;
+}
+
+=Heading Styling 
 .login-sec h2 {
     margin-bottom: 30px;
-    font-weight: 800;
-    font-size: 30px;
+    font-weight: bold;
+    font-size: 28px;
     color: #0069c0;
 }
 
@@ -29,28 +56,45 @@
     height: 5px;
     background: #6ec6ff;
     display: block;
-    margin-top: 20px;
+    margin: 10px auto;
     border-radius: 3px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
+=Form Group Styling 
 .form-group {
-    margin-bottom: 1px;
+    margin-bottom: 15px;
+    text-align: left;
 }
 
-.btn-login {
-    background: #0069c0;
-    color: #fff;
-    font-weight: 600;
+=Input Field Styling 
+.form-control {
     width: 100%;
     padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f1f1f1;
+}
+
+=Submit Button Styling 
+.btn-login {
+    background-color: #0069c0;
+    color: white;
+    padding: 10px;
+    width: 100%;
     border: none;
-    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
 .btn-login:hover {
-    background: #005c99;
+    background-color: #005c99;
+}
+
+=Google Button Styling 
+.google-btn {
+    width: 100%;
+    margin-top: 20px;
 }
 
 .text-danger {
@@ -59,15 +103,21 @@
     margin-top: 5px;
 }
 
-.spinner-border {
-    margin: 15px 0;
+=Add shadow on hover 
+.container:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.);
 }
 
+=Link Styling 
 a {
     color: #0069c0;
-    text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
 }
+body {
+    background: linear-gradient(135deg, #e0f7fa, #80deea); =Light blue gradient/
+}
+*/
+

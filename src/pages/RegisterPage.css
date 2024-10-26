@@ -1,61 +1,73 @@
 
+/*==* Main Register Block Styling *==
 .register-block {
-    background-color: #f8f9fa;
-    padding: 50px 0;
-}
-
-.container {
-    max-width: 600px;
-    margin: auto;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-}
-
-.register-sec {
-    padding: 20px;
-}
-
-h2.text-center {
-    margin-bottom: 30px;
-    color: #0764c1;
-}
-
-.register-form {
+    width: 100%;
+    padding: 0;
+    background-color: #f7f7f7;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; ==* Use full viewport height *==
 }
 
+==* Card Styling *==
+.card {
+    background: white;
+    border-radius: 10px;
+    width: 400px; ==* Set a specific width for the card *==
+    padding: 40px; ==* Increased padding for more space *==
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); ==* Subtle shadow *==
+    position: relative;
+    z-index: 1; ==* On top of the tilted box *==
+}
+
+==* Form Group Styling *==
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 30px; ==* Increased margin for better spacing *==
+    text-align: left;
 }
 
-.label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-control {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ced4da;
-}
-
+==* Submit Button Styling *==
 .btn-register {
     background-color: #0069c0;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
+    color: white;
+    padding: 12px; ==* Adjusted padding *==
+    width: 100%;
     border: none;
+    border-radius: 5px;
+    font-size: 18px; ==* Bigger button text *==
+    font-weight: bold;
+    margin-top: 20px; ==* Adjust margin for spacing *==
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-register:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); ==* Add shadow on hover *==
 }
 
+==* Error Message Styling *==
 .text-danger {
-    color: red; /* Adjust error message color */
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
 }
+
+==* Link Styling *==
+a {
+    color: #0069c0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+==* Background Styling *==
+body {
+    background: linear-gradient(135deg, #e0f7fa, #80deea); ==* Light blue gradient *==
+}
+
+*/
+
+
