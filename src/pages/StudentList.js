@@ -1002,7 +1002,6 @@
 // };
 
 // export default StudentList;
-
 import React, { useEffect, useState } from 'react';
 import { db } from '../services/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
@@ -1014,6 +1013,7 @@ const StudentList = () => {
   const { user } = useAuthContext();
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -1032,6 +1032,15 @@ const StudentList = () => {
     };
 
     fetchStudents();
+
+    // Set up a listener to detect screen size changes
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    handleResize(); // Check on initial load
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [user]);
 
   if (loading) {
@@ -1048,42 +1057,58 @@ const StudentList = () => {
 
       <main className="flex-grow p-6 mt-24">
         <div className="container mx-auto bg-white shadow-lg rounded-lg p-8 border border-gray-300">
-          <button
-            onClick={() => window.history.back()}
-            className="bg-gray-500 text-white py-2 px-4 mb-6 rounded-lg hover:bg-gray-600 transition duration-200"
-          >
-            Back
-          </button>
+
+          {/* Render Back button at the top for larger screens only */}
+          {!isMobile && (
+            <button
+              onClick={() => window.history.back()}
+              className="bg-gray-500 text-white py-2 px-4 mb-6 rounded-lg hover:bg-gray-600 transition duration-200 float-right"
+            >
+              Back
+            </button>
+          )}
 
           <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Student List</h2>
 
           {students.length === 0 ? (
             <p className="text-gray-700 text-center">No students found for your account.</p>
           ) : (
-            <table className="min-w-full bg-white border-collapse">
-              <thead>
-                <tr className="bg-gray-200 text-left">
-                  <th className="py-2 px-4 border-b">Name</th>
-                  <th className="py-2 px-4 border-b">10th Grade</th>
-                  <th className="py-2 px-4 border-b">12th Grade</th>
-                  <th className="py-2 px-4 border-b">UG</th>
-                  <th className="py-2 px-4 border-b">PG</th>
-                  <th className="py-2 px-4 border-b">Skills</th>
-                </tr>
-              </thead>
-              <tbody>
-                {students.map((student) => (
-                  <tr key={student.id} className="hover:bg-gray-100">
-                    <td className="py-2 px-4 border-b">{student.name}</td>
-                    <td className="py-2 px-4 border-b">{student.tenth}</td>
-                    <td className="py-2 px-4 border-b">{student.twelfth}</td>
-                    <td className="py-2 px-4 border-b">{student.ug}</td>
-                    <td className="py-2 px-4 border-b">{student.pg}</td>
-                    <td className="py-2 px-4 border-b">{student.skillSet}</td>
+            <div className="overflow-x-auto mb-4">
+              <table className="min-w-full bg-white border-collapse">
+                <thead>
+                  <tr className="bg-gray-200 text-left">
+                    <th className="py-2 px-4 border-b">Name</th>
+                    <th className="py-2 px-4 border-b">10th Grade</th>
+                    <th className="py-2 px-4 border-b">12th Grade</th>
+                    <th className="py-2 px-4 border-b">UG</th>
+                    <th className="py-2 px-4 border-b">PG</th>
+                    <th className="py-2 px-4 border-b">Skills</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {students.map((student) => (
+                    <tr key={student.id} className="hover:bg-gray-100">
+                      <td className="py-2 px-4 border-b">{student.name}</td>
+                      <td className="py-2 px-4 border-b">{student.tenth}</td>
+                      <td className="py-2 px-4 border-b">{student.twelfth}</td>
+                      <td className="py-2 px-4 border-b">{student.ug}</td>
+                      <td className="py-2 px-4 border-b">{student.pg}</td>
+                      <td className="py-2 px-4 border-b">{student.skillSet}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>x
+            </div>
+          )}
+
+          {/* Render Back button at the bottom for mobile screens only */}
+          {isMobile && (
+            <button
+              onClick={() => window.history.back()}
+              className="bg-gray-500 text-white py-2 px-4 mt-6 rounded-lg hover:bg-gray-600 transition duration-200 w-full"
+            >
+              Back
+            </button>
           )}
         </div>
       </main>

@@ -534,12 +534,10 @@
 
 // export default StudentEntry;
 
-
 import React, { useState } from 'react';
 import { db } from '../services/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { useAuthContext } from '../context/AuthContext';
-import Papa from 'papaparse';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './HeaderFooter';
@@ -610,45 +608,6 @@ const StudentEntry = () => {
     }
   };
 
-  // Handler for CSV file upload
-  const handleFileUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      Papa.parse(file, {
-        header: true,
-        skipEmptyLines: true,
-        complete: function (results) {
-          const relevantData = results.data.map((row) => ({
-            name: row.name || '',
-            tenth: row.tenth || '',
-            twelfth: row.twelfth || '',
-            ug: row.ug || '',
-            pg: row.pg || '',
-            skillSet: row.skillSet || '',
-          }));
-          uploadToFirebase(relevantData);
-        },
-      });
-    }
-  };
-
-  // Upload extracted data to Firebase
-  const uploadToFirebase = async (data) => {
-    setLoading(true);
-    try {
-      const batch = data.map((student) =>
-        addDoc(collection(db, 'students'), { ...student, userId: user.uid })
-      );
-      await Promise.all(batch);
-      toast.success('Data uploaded successfully!');
-    } catch (error) {
-      console.error('Error uploading data:', error);
-      toast.error('Error uploading data');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
@@ -658,19 +617,6 @@ const StudentEntry = () => {
       <main className="flex-grow bg-gray-100 p-6 mt-24">
         <div className="container mx-auto bg-white shadow-md rounded-lg p-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Student Entry</h2>
-
-          {/* File Upload for CSV */}
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Upload CSV File
-            </label>
-            <input
-              type="file"
-              accept=".csv"
-              onChange={handleFileUpload}
-              className="w-full p-2 border border-gray-300 rounded-lg"
-            />
-          </div>
 
           {/* Manual Entry Form */}
           <form onSubmit={handleManualSubmit}>

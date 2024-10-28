@@ -145,36 +145,98 @@
 
 // export default App;
 
-  // src/App.import React from 'react';
+//   // src/App.import React from 'react';
+// import { BrowserRouter, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+// import RegisterPage from './pages/RegisterPage';
+// import LoginPage from './pages/LoginPage';
+// import LoginPage from './pages/About';
+
+
+// import Dashboard from './pages/DashBoard'; // Ensure this matches the correct casing
+// import StudentEntryForm from './pages/StudentEntryForm';
+// import StudentList from './pages/StudentList';
+// import Home from './pages/Home'; // Import the Home component
+// import PdfGenerator from './pages/PdfGenerator'; // Import your PdfGenerator component
+// import { clearUserData } from './services/Storage';
+// import { isAuthenticated } from './services/Auth';
+// import { AuthProvider } from './context/AuthContext';
+// import './index.css'; // Adjust path if necessary
+// import HeaderFooter from './pages/HeaderFooter'; // Import the HeaderFooter component
+
+// const App = () => {
+//   return (
+//     <div className="App">
+//       <AuthProvider>
+//         <BrowserRouter>
+//           <HeaderFooter /> {/* Include Header and Footer */}
+//           <Routes>
+//             <Route path='/about' element={<About />}/>
+//             <Route path="/" element={<Home />} /> {/* Add the Home route */}
+//             <Route path="/register" element={<RegisterPage />} />
+//             <Route path="/login" element={<LoginPage />} />
+//             <Route path="/dashboard" element={<ProtectedDashboard />} />
+//             <Route path="/student-entry-form" element={<StudentEntryForm />} />
+//             <Route path="/student-list" element={<StudentList />} />
+//             <Route path="/pdf-generation" element={<PdfGenerator />} /> {/* Add PDF generation route */}
+//           </Routes>
+//         </BrowserRouter>
+//       </AuthProvider>
+//     </div>
+//   );
+// };
+
+// function ProtectedDashboard() {
+//   const navigate = useNavigate();
+
+//   const handleLogout = () => {
+//     clearUserData(); 
+//     navigate('/login'); 
+//   };
+
+//   if (!isAuthenticated()) {
+//     return <Navigate to="/login" />;
+//   }
+
+//   return (
+//     <div className="dashboard-container">
+//       <Dashboard />
+//       <button className="logout-button" onClick={handleLogout}>Logout</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
 import { BrowserRouter, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 
-import Dashboard from './pages/DashBoard'; // Ensure this matches the correct casing
+import Dashboard from './pages/DashBoard';
 import StudentEntryForm from './pages/StudentEntryForm';
 import StudentList from './pages/StudentList';
-import Home from './pages/Home'; // Import the Home component
-import PdfGenerator from './pages/PdfGenerator'; // Import your PdfGenerator component
+import Home from './pages/Home';
+import PdfGenerator from './pages/PdfGenerator';
 import { clearUserData } from './services/Storage';
 import { isAuthenticated } from './services/Auth';
 import { AuthProvider } from './context/AuthContext';
-import './index.css'; // Adjust path if necessary
-import HeaderFooter from './pages/HeaderFooter'; // Import the HeaderFooter component
+import './index.css';
+import HeaderFooter from './pages/HeaderFooter';
 
 const App = () => {
   return (
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
-          <HeaderFooter /> {/* Include Header and Footer */}
+          <HeaderFooter />
           <Routes>
-            <Route path="/" element={<Home />} /> {/* Add the Home route */}
+            <Route path="/" element={<Home />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/dashboard" element={<ProtectedDashboard />} />
             <Route path="/student-entry-form" element={<StudentEntryForm />} />
             <Route path="/student-list" element={<StudentList />} />
-            <Route path="/pdf-generation" element={<PdfGenerator />} /> {/* Add PDF generation route */}
+            <Route path="/pdf-generation" element={<PdfGenerator />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

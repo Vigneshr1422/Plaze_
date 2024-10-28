@@ -271,14 +271,16 @@
 //     );
 // }
 
-/// above ok
+// /// above ok
+
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from '../services/firebase'; // Assuming firebase is already configured in your app
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
-import Navbar from './Navbar'; // Importing the same Navbar component
-import Footer from './Footer'; // Importing the same Footer component
+import HeaderFooter from './HeaderFooter'; // Importing the HeaderFooter component
+import Footer from './Footer'; // Assuming you have a Footer component
 
 export default function RegisterPage() {
     const initialStateErrors = {
@@ -356,8 +358,8 @@ export default function RegisterPage() {
 
     return (
         <>
-            {/* Navbar */}
-            <Navbar />
+            {/* Header */}
+            <HeaderFooter />
 
             <section className="min-h-screen flex items-center justify-center bg-gray-200 pt-20">
                 <div className="container mx-auto max-w-md bg-white shadow-lg rounded-lg p-8">
@@ -429,6 +431,7 @@ export default function RegisterPage() {
         </>
     );
 }
+
 
 
 // import React,{ useState } from 'react';
