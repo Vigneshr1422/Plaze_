@@ -9,22 +9,34 @@ const Navbar = () => {
                 <nav>
                     <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
                         <li>
-                            <Link to="/" className="no-underline text-xl md:text-2xl transition-transform duration-300 hover:transform hover:-translate-x-2 cursor-pointer">
+                            <Link 
+                                to="/" 
+                                className="no-underline text-xl md:text-2xl transition duration-300 hover:border-b-2 hover:border-white"
+                            >
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link to="/services" className="no-underline text-xl md:text-2xl transition-transform duration-300 hover:transform hover:-translate-x-2 cursor-pointer">
+                            <Link 
+                                to="/services" 
+                                className="no-underline text-xl md:text-2xl transition duration-300 hover:border-b-2 hover:border-white"
+                            >
                                 Services
                             </Link>
                         </li>
                         <li>
-                            <Link to="/about" className="no-underline text-xl md:text-2xl transition-transform duration-300 hover:transform hover:-translate-x-2 cursor-pointer">
+                            <Link 
+                                to="/about" 
+                                className="no-underline text-xl md:text-2xl transition duration-300 hover:border-b-2 hover:border-white"
+                            >
                                 About
                             </Link>
                         </li>
                         <li>
-                            <Link to="/admin" className="no-underline text-xl md:text-2xl transition-transform duration-300 hover:transform hover:-translate-x-2 cursor-pointer">
+                            <Link 
+                                to="/admin" 
+                                className="no-underline text-xl md:text-2xl transition duration-300 hover:border-b-2 hover:border-white"
+                            >
                                 Admin
                             </Link>
                         </li>

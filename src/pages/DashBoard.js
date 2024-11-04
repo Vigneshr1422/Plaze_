@@ -286,7 +286,7 @@ const Dashboard = () => {
         <Link to="/pdf-generation">
           <div className="container-card bg-white shadow-md rounded-lg hover:shadow-lg hover:scale-105 transform transition duration-200 p-6 flex flex-col items-center space-y-4">
             <FaFilePdf className="text-4xl text-purple-500" />
-            <button className="text-purple-500 font-bold text-lg">Generate PDF</button>
+            <button className="text-purple-500 font-bold text-lg">Generate Report</button>
           </div>
         </Link>
       </div>
