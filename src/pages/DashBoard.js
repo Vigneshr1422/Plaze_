@@ -3,6 +3,7 @@ import { jwtDecode } from 'jwt-decode';
 import { clearUserData, getUserData } from '../services/Storage';
 import { FaUserPlus, FaListAlt, FaFilePdf, FaSignOutAlt } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({ name: '', email: '' });
@@ -25,13 +26,14 @@ const Dashboard = () => {
       console.error("No token found.");
     }
   }, []);
+
   const handleLogout = () => {
     clearUserData();
     navigate('/login');
   };
 
   return (
-    <div className="dashboard-container flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-gray-200 relative">
+    <div className="dashboard-container flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-gray-200 relative px-4 md:px-8">
       {/* Profile Container */}
       <div className="profile-container bg-white shadow-md rounded-lg p-6 mb-6 w-full max-w-sm text-center">
         <h2 className="text-2xl font-semibold text-gray-800 mb-2">Profile</h2>
@@ -39,11 +41,11 @@ const Dashboard = () => {
         <p className="text-sm text-gray-500">{userData.email}</p>
       </div>
 
-      <h1 className="text-4xl font-extrabold mb-8 text-gray-800 animate-fadeInUp">
+      <h1 className="text-4xl font-extrabold mb-8 text-gray-800 animate-fadeInUp text-center">
         Welcome to the Placement Dashboard
       </h1>
 
-      <div className="dashboard-actions grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 w-full max-w-md mx-auto">
+      <div className="dashboard-actions grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-lg mx-auto">
         <Link to="/student-entry-form">
           <div className="container-card bg-white shadow-md rounded-lg hover:shadow-lg hover:scale-105 transform transition duration-200 p-6 flex flex-col items-center space-y-4">
             <FaUserPlus className="text-4xl text-blue-500" />
