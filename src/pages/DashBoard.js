@@ -33,7 +33,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-container flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-gray-200 relative px-4 md:px-8">
+    <div className="dashboard-container flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-gray-200 relative px-4 md:px-8 pt-16 sm:pt-24">
       {/* Profile Container */}
       <div className="profile-container bg-white shadow-md rounded-lg p-6 mb-6 w-full max-w-sm text-center">
         <h2 className="text-2xl font-semibold text-gray-800 mb-2">Profile</h2>
