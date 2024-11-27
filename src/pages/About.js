@@ -1,5 +1,6 @@
 
 import React from 'react';
+
 // Replace with your image path
 import developerImage from '../assets/img/vignesh_standlike_hero.jpg'; // Update with your image path
 import { FaLinkedin, FaGithub } from 'react-icons/fa'; // LinkedIn and GitHub icons

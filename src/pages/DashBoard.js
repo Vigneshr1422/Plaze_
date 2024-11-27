@@ -1,7 +1,8 @@
+
 import { Link, useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import { clearUserData, getUserData } from '../services/Storage';
-import { FaUserPlus, FaListAlt, FaFilePdf, FaSignOutAlt } from 'react-icons/fa';
+import { clearUserData, getUserData } from '../services/Storage'; // Adjust the path as per your project
+import { FaUserPlus, FaListAlt, FaFilePdf, FaSignOutAlt, FaCalendarAlt, FaBriefcase } from 'react-icons/fa'; // Added FaBriefcase for Placed Students button
 import { useEffect, useState } from 'react';
 
 const Dashboard = () => {
@@ -46,6 +47,7 @@ const Dashboard = () => {
       </h1>
 
       <div className="dashboard-actions grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-lg mx-auto">
+        {/* Add Student Button */}
         <Link to="/student-entry-form">
           <div className="container-card bg-white shadow-md rounded-lg hover:shadow-lg hover:scale-105 transform transition duration-200 p-6 flex flex-col items-center space-y-4">
             <FaUserPlus className="text-4xl text-blue-500" />
@@ -53,6 +55,7 @@ const Dashboard = () => {
           </div>
         </Link>
 
+        {/* Students List Button */}
         <Link to="/student-list">
           <div className="container-card bg-white shadow-md rounded-lg hover:shadow-lg hover:scale-105 transform transition duration-200 p-6 flex flex-col items-center space-y-4">
             <FaListAlt className="text-4xl text-green-500" />
@@ -60,14 +63,32 @@ const Dashboard = () => {
           </div>
         </Link>
 
+        {/* Generate Report Button */}
         <Link to="/pdf-generation">
           <div className="container-card bg-white shadow-md rounded-lg hover:shadow-lg hover:scale-105 transform transition duration-200 p-6 flex flex-col items-center space-y-4">
             <FaFilePdf className="text-4xl text-purple-500" />
             <button className="text-purple-500 font-bold text-lg">Generate Report</button>
           </div>
         </Link>
+
+        {/* Report by Year Button */}
+        <Link to="/student-year">
+          <div className="container-card bg-white shadow-md rounded-lg hover:shadow-lg hover:scale-105 transform transition duration-200 p-6 flex flex-col items-center space-y-4">
+            <FaCalendarAlt className="text-4xl text-yellow-500" />
+            <button className="text-yellow-500 font-bold text-lg">Report By Year</button>
+          </div>
+        </Link>
+
+        {/* Placed Students Button */}
+        <Link to="/placed-students">
+          <div className="container-card bg-white shadow-md rounded-lg hover:shadow-lg hover:scale-105 transform transition duration-200 p-6 flex flex-col items-center space-y-4">
+            <FaBriefcase className="text-4xl text-orange-500" />
+            <button className="text-orange-500 font-bold text-lg">Placed Students</button>
+          </div>
+        </Link>
       </div>
 
+      {/* Logout Button */}
       <button
         onClick={handleLogout}
         className="mt-8 flex items-center justify-center bg-red-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-red-600 transform transition-all duration-200 hover:scale-105 space-x-2"
