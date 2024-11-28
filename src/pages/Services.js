@@ -1,59 +1,75 @@
-// Services.js
 import React from 'react';
 import image_ from '../assets/img/data handling problem.png'; // Update with your image path
 
 const Services = () => {
   return (
-    <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center py-12 pt-20"> {/* Added pt-20 */}
-      <div className="container mx-auto text-center px-4">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Project Features</h2>
-        <p className="text-xl md:text-2xl mb-8">Explore the innovative features that enhance user experience and drive impactful results.</p>
-        
-        {/* Existing Problems Section */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12 flex flex-col md:flex-row items-center md:items-start">
-          <div className="w-full md:w-1/2 mb-6 md:mb-0 md:mr-8">
-            <img 
-              src={image_} 
-              alt="Illustration of problems" 
-              className="rounded-lg shadow-md w-3/4 md:w-1/2 h-auto mx-auto" // Adjusted size classes
-            />
-          </div>
-          <div className="w-full md:w-1/2 text-left">
-            <h3 className="text-3xl font-semibold text-gray-800 mb-4">Existing Problems</h3>
-            <p className="text-gray-600 mb-4">
-              Our project aims to address several existing challenges. These include:
+    <div className="min-h-screen bg-gray-50 pt-32 pb-16"> {/* Increased padding-top for mobile, to ensure space */}
+    <div className="container mx-auto text-center px-6">
+      {/* Header Section */}
+      <h2 className="text-4xl font-extrabold text-gray-800 mb-8">Our Project: Transforming the Way We Work</h2>
+      <p className="text-xl text-gray-600 mb-12">
+        Explore how our innovative features can help you tackle the most common challenges in data management and collaboration.
+      </p>
+
+        {/* Main Content Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+
+          {/* Problem Section */}
+          <div className="flex flex-col items-center bg-white rounded-lg shadow-xl p-8 transition-all hover:shadow-2xl">
+            <img src={image_} alt="Data Problems" className="w-64 h-auto rounded-md mb-6" />
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Challenges We Address</h3>
+            <p className="text-gray-600 mb-6 text-justify">
+              Our project tackles the core issues businesses face in managing data and collaborating effectively:
             </p>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
-              <li>Difficulty in managing data and ensuring accuracy.</li>
-              <li>Lack of real-time collaboration tools that foster team dynamics.</li>
-              <li>Challenges in gaining actionable insights from data analytics.</li>
-              <li>Insufficient security measures in traditional systems.</li>
-              <li>Poor user experience and complicated interfaces.</li>
+            <ul className="list-disc list-inside text-gray-600 space-y-2 text-justify">
+              <li>Handling large and complex datasets</li>
+              <li>Real-time collaboration across remote teams</li>
+              <li>Extracting actionable insights from data</li>
+              <li>Ensuring data security and privacy</li>
+              <li>Improving user engagement with streamlined interfaces</li>
             </ul>
           </div>
-        </div>
 
-        {/* Innovative Features Section */}
-        <h3 className="text-3xl font-semibold text-gray-800 mb-6">Innovative Features</h3>
-        <div className="flex flex-col space-y-8">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h4 className="text-2xl font-semibold text-blue-700 mb-2">Real-Time Collaboration</h4>
-            <p className="text-gray-600 mb-4">
-              Connect and collaborate with others in real-time. Our project enables seamless interaction and teamwork, enhancing productivity and understanding.
+          {/* Feature Section */}
+          <div className="flex flex-col items-center bg-white rounded-lg shadow-xl p-8 transition-all hover:shadow-2xl">
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Key Features</h3>
+            <p className="text-gray-600 mb-6">
+              Our platform provides a suite of innovative features designed to enhance productivity and user experience:
             </p>
+            <div className="space-y-6">
+              {/* Feature 1 */}
+              <div>
+                <h4 className="text-xl font-semibold text-blue-600 mb-2">Real-Time Collaboration</h4>
+                <p className="text-gray-600">Work together seamlessly with live updates and instant feedback across teams.</p>
+              </div>
+              {/* Feature 2 */}
+              <div>
+                <h4 className="text-xl font-semibold text-green-600 mb-2">Advanced Analytics</h4>
+                <p className="text-gray-600">Gain insights from your data and make better-informed decisions using powerful analytics tools.</p>
+              </div>
+              {/* Feature 3 */}
+              <div>
+                <h4 className="text-xl font-semibold text-purple-600 mb-2">Personalized Recommendations</h4>
+                <p className="text-gray-600">Receive smart, AI-driven suggestions tailored to your unique needs and preferences.</p>
+              </div>
+            </div>
           </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h4 className="text-2xl font-semibold text-green-700 mb-2">Data Analytics</h4>
-            <p className="text-gray-600 mb-4">
-              Leverage powerful data insights with our analytics feature, helping you make informed decisions and track key metrics effectively.
+
+          {/* Solutions Section */}
+          <div className="flex flex-col items-center bg-white rounded-lg shadow-xl p-8 transition-all hover:shadow-2xl">
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Our Solutions</h3>
+            <p className="text-gray-600 mb-6 text-justify">
+              We provide actionable solutions for the challenges you face, all while ensuring smooth integration with your existing workflows.
             </p>
+            <ul className="list-disc list-inside text-gray-600 space-y-2 text-justify">
+              <li>Streamlined data management for better accuracy</li>
+              <li>Seamless communication tools for improved collaboration</li>
+              <li>Easy-to-use dashboards for tracking progress and key metrics</li>
+              <li>Enterprise-grade security features to protect sensitive data</li>
+              <li>Intuitive interface design for a better user experience</li>
+            </ul>
           </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h4 className="text-2xl font-semibold text-purple-700 mb-2">Personalized Recommendations</h4>
-            <p className="text-gray-600">
-              Our project provides personalized recommendations to enhance the user experience, tailoring suggestions based on individual preferences.
-            </p>
-          </div>
+
         </div>
       </div>
     </div>
