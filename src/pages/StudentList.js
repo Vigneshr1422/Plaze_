@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { db } from '../services/firebase';
 import { collection, query, where, getDocs, deleteDoc, doc, updateDoc } from 'firebase/firestore';
@@ -36,25 +35,31 @@ const StudentList = () => {
     const fetchStudents = async () => {
       if (!user) return;
 
+      setLoading(true); // Show loader while fetching
       try {
-        const q = query(collection(db, 'students'), where('userId', '==', user.uid));
+        const q = query(
+          collection(db, 'students'),
+          where('userId', '==', user.uid) // Ensure filtering by current user's UID
+        );
         const querySnapshot = await getDocs(q);
         const studentsData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
+        // Extract unique years for dropdown
         const years = [...new Set(studentsData.map(student => student.passedOutYear))];
         setUniqueYears(years);
 
+        // Set state with fetched data
         setStudents(studentsData);
         setFilteredStudents(studentsData);
       } catch (error) {
         console.error('Error fetching student data:', error);
       } finally {
-        setLoading(false);
+        setLoading(false); // Hide loader after fetching
       }
     };
 
     fetchStudents();
-  }, [user]);
+  }, [user]); // Re-fetch data when user changes (e.g., login/logout)
 
   const deleteAllStudents = async () => {
     if (window.confirm('Are you sure you want to delete all students? This action cannot be undone.')) {
@@ -63,6 +68,8 @@ const StudentList = () => {
         const querySnapshot = await getDocs(q);
         const deletePromises = querySnapshot.docs.map((doc) => deleteDoc(doc.ref));
         await Promise.all(deletePromises);
+
+        // Clear local state after deletion
         setStudents([]);
         setFilteredStudents([]);
         setToast('All students deleted successfully!');
@@ -90,6 +97,8 @@ const StudentList = () => {
     if (Object.values(updatedData).every((field) => field)) {
       try {
         await updateDoc(doc(db, 'students', student.id), updatedData);
+
+        // Update local state with edited data
         setStudents((prev) =>
           prev.map((std) => (std.id === student.id ? { ...std, ...updatedData } : std))
         );
@@ -113,7 +122,9 @@ const StudentList = () => {
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
-    const filtered = students.filter(student => student[searchField]?.toString().toLowerCase().includes(e.target.value.toLowerCase()));
+    const filtered = students.filter(student =>
+      student[searchField]?.toString().toLowerCase().includes(e.target.value.toLowerCase())
+    );
     setFilteredStudents(filtered);
   };
 

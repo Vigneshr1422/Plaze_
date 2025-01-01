@@ -66,7 +66,7 @@ export default function LoginPage() {
     };
 
     return (
-        <section className="login-block min-h-screen flex items-center justify-center bg-gray-50">
+        <section className="login-block min-h-screen flex items-center justify-center bg-[#DEEAFE]">
             <div className="container mx-auto max-w-md bg-white shadow-md rounded-lg p-8">
                 <h2 className="text-center text-2xl font-bold mb-6 text-gray-800">Login Now</h2>
                 <form onSubmit={handleSubmit} className="login-form">

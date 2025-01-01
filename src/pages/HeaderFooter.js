@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -15,9 +16,8 @@ const HeaderFooter = () => {
         <div className="container mx-auto flex justify-between items-center px-4">
           {/* Clickable Logo */}
           <Link to="/" className="flex items-center no-underline text-white" aria-label="Homepage">
-  <h1 className="text-3xl font-bold">Plaze_</h1>
-</Link>
-
+            <h1 className="text-3xl font-bold">Plaze_</h1>
+          </Link>
 
           {/* Hamburger Icon */}
           <button
@@ -48,6 +48,7 @@ const HeaderFooter = () => {
               <li>
                 <Link to="/login" className="text-xl no-underline text-white hover:no-underline">Admin</Link>
               </li>
+             
             </ul>
           </nav>
         </div>
@@ -77,6 +78,7 @@ const HeaderFooter = () => {
               <li>
                 <Link to="/login" className="text-xl no-underline text-white hover:no-underline" onClick={toggleMenu}>Admin</Link>
               </li>
+             
             </ul>
           </div>
         )}
