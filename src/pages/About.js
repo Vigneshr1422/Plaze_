@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import developerImage from '../assets/img/vignesh_standlike_hero.jpg'; // Update with your image path
-import { FaLinkedin, FaGithub, FaFilePdf } from 'react-icons/fa'; // LinkedIn, GitHub, and PDF icons
+import { FaLinkedin, FaGithub } from 'react-icons/fa'; // Removed FaFilePdf import
 
 const About = () => {
+  const [showMessage, setShowMessage] = useState(false);
+
+  // Function to handle download click
+  const handleDownload = () => {
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false); // Hide message after 2 seconds
+    }, 2000);
+  };
+
   return (
     <div className="min-h-screen py-12 pt-24 flex items-center justify-center" style={{ backgroundColor: '#DEEAFE' }}>
       <div className="container mx-auto px-4 lg:px-8 space-y-12">
@@ -25,7 +35,7 @@ const About = () => {
               className="w-32 h-32 rounded-full mb-4"
             />
             
-            {/* Icons for LinkedIn, GitHub, and Resume */}
+            {/* Icons for LinkedIn and GitHub */}
             <div className="flex space-x-4 mt-2">
               <a 
                 href="https://www.linkedin.com/in/vignesh-r-793931252/" 
@@ -42,14 +52,6 @@ const About = () => {
                 className="text-gray-800 hover:text-gray-600"
               >
                 <FaGithub size={32} />
-              </a>
-              {/* Resume View Icon */}
-              <a
-                href="/Vignesh_R.pdf" // Link to the page where the resume is viewed
-                target="_blank"
-                className="text-red-600 hover:text-red-800"
-              >
-                <FaFilePdf size={32} />
               </a>
             </div>
 
@@ -68,11 +70,18 @@ const About = () => {
               <a 
                 href="/Vignesh_R.pdf"  // Ensure the resume is in the public folder
                 download
-                className="flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-800"
+                onClick={handleDownload} // Handle download click
+                className="text-blue-600 hover:text-blue-800"
               >
-                <FaFilePdf size={32} />
                 <span className="text-lg">Download Resume</span>
               </a>
+
+              {/* Pop-Up Message */}
+              {showMessage && (
+                <div className="mt-4 text-blue-600 font-semibold">
+                  ❤️ Thank you for downloading my resume 🪄
+                </div>
+              )}
             </section>
           </section>
 
@@ -96,13 +105,9 @@ const About = () => {
               for exciting updates, new features, and more ways to get involved.
             </p>
           </section>
-          
-
         </div>
       </div>
-      
     </div>
-    
   );
 };
 
